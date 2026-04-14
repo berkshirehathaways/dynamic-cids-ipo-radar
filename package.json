@@ -1,0 +1,21 @@
+{
+  "name": "dynamic-cids-ipo-radar",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w frontend",
+    "start": "npm run start -w backend"
+  },
+  "overrides": {
+    "path-to-regexp": "8.4.2",
+    "undici": "8.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

@@ -1,0 +1,7 @@
+tunnel: ipo-radar
+credentials-file: /home/YOUR_USER/.cloudflared/YOUR_TUNNEL_ID.json
+
+ingress:
+  - hostname: radar.yourdomain.com
+    service: http://localhost:8080
+  - service: http_status:404

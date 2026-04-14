@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "functions": {
+    "api/[...path].js": {
+      "maxDuration": 300
+    }
+  },
+  "crons": [
+    {
+      "path": "/cron/run",
+      "schedule": "0 5 * * *"
+    },
+    {
+      "path": "/cron/morning-check",
+      "schedule": "0 23 * * *"
+    }
+  ]
+}

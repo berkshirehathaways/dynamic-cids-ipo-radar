@@ -1,0 +1,8 @@
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+backend/data/
+frontend/dist/
+*.log
+supabase/.temp/
+backend/.env.vercel*
