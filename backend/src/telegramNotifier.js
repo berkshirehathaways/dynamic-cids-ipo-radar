@@ -117,9 +117,10 @@ function resolveTargetChatId(target) {
   return chatId;
 }
 
-function withDisclaimer(text) {
+function withDisclaimer(text, target) {
   const body = String(text || "").trim();
-  if (!body) return AUTO_UPDATE_DISCLAIMER;
+  if (!body) return "";
+  if (target !== "signal") return body;
   if (body.includes(AUTO_UPDATE_DISCLAIMER)) return body;
   return `${body}\n${AUTO_UPDATE_DISCLAIMER}`;
 }
@@ -132,7 +133,7 @@ export async function sendTelegramMessages(messages, options = {}) {
 
   let sent = 0;
   for (const text of messages) {
-    const messageText = withDisclaimer(text);
+    const messageText = withDisclaimer(text, target);
     const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
